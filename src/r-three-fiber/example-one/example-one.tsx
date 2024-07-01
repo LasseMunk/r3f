@@ -1,5 +1,6 @@
 import { MeshWobbleMaterial, OrbitControls, useHelper } from "@react-three/drei";
 import { Canvas, Vector3 } from "@react-three/fiber";
+import { useControls } from "leva";
 import { useRef } from "react";
 import { Mesh } from "three";
 import * as THREE from "three";
@@ -77,11 +78,16 @@ const TorusKnot = ({ position, args }: { position: Vector3; args: [number?, numb
 	// 	ref.current.position.y = Math.sin(state.clock.getElapsedTime());
 	// });
 
-	const color = new THREE.Color(0xff6363);
+	const { color, radius } = useControls({
+		color: { value: "#ff0000", label: "Color" },
+		radius: { value: 1, min: 0.1, max: 5, label: "Radius" },
+	});
+
+	// const color = new THREE.Color(0xff6363);
 
 	return (
 		<mesh position={position} ref={ref}>
-			<torusKnotGeometry args={args} />
+			<torusKnotGeometry args={[radius, ...args]} />
 			{/* <meshStandardMaterial color={color} wireframe /> */}
 			<MeshWobbleMaterial speed={0.3} factor={4} color={color} />
 		</mesh>
@@ -92,11 +98,14 @@ const ExampleOneScene = () => {
 	const directionalLightRef = useRef<THREE.DirectionalLight>(null!);
 
 	useHelper(directionalLightRef, THREE.DirectionalLightHelper, 0.5, "white");
-
+	const { lightColor, lightIntensity } = useControls({
+		lightColor: { value: "#ffffff", label: "Light Color" },
+		lightIntensity: { value: 1.5, min: 0, max: 4, label: "Light Intensity" },
+	});
 	return (
 		<>
 			<ambientLight intensity={0.5} />
-			<directionalLight position={[0, 2, 2]} intensity={1.5} ref={directionalLightRef} />
+			<directionalLight position={[0, 2, 2]} intensity={lightIntensity} ref={directionalLightRef} color={lightColor} />
 			{/* <group position={[0, 0, -3]}>
 				<Cube position={[0, 0, 0]} size={[1, 1, 1]} color='red' />
 				<Cube position={[1, 0, 0]} size={[1, 1, 1]} color='yellow' />
@@ -106,7 +115,7 @@ const ExampleOneScene = () => {
 			{/* <Cube position={[0, 0, 0]} size={[1, 1, 1]} color='pink' /> */}
 			{/* <Sphere position={[0, 0, 0]} args={[1, 30, 30]} color='pink' /> */}
 			{/* <Torus position={[2, 0, 0]} args={[0.5, 0.2, 30, 30]} color='yellow' /> */}
-			<TorusKnot position={[0, 0, 0]} args={[0.5, 0.2, 1000, 50]} />
+			<TorusKnot position={[0, 0, 0]} args={[0.2, 1000, 50]} />
 			<OrbitControls enableZoom={false} />
 		</>
 	);

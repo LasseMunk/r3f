@@ -4,6 +4,7 @@ import { Error404, Home } from "./pages";
 import { ExampleOne } from "./r-three-fiber";
 
 const App = () => {
+	
 	return (
 		<BrowserRouter basename='/r3f'>
 			<div className='flex h-screen'>
