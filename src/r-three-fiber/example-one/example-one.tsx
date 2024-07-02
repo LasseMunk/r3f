@@ -70,7 +70,7 @@ const Torus = ({ position, args, color }: { position: Vector3; args: [number?, n
 */
 const TorusKnot = ({ position, args }: { position: Vector3; args: [number?, number?, number?, number?] }) => {
 	// https://threejs.org/docs/#api/en/geometries/TorusGeometry
-	const ref = useRef<Mesh>(null!);
+	const ref = useRef<Mesh>(null);
 
 	// useFrame((state, delta) => {
 	// 	ref.current.rotation.z += delta * multiplierZ;
@@ -98,10 +98,12 @@ const ExampleOneScene = () => {
 	const directionalLightRef = useRef<THREE.DirectionalLight>(null!);
 
 	useHelper(directionalLightRef, THREE.DirectionalLightHelper, 0.5, "white");
+
 	const { lightColor, lightIntensity } = useControls({
 		lightColor: { value: "#ffffff", label: "Light Color" },
 		lightIntensity: { value: 1.5, min: 0, max: 4, label: "Light Intensity" },
 	});
+
 	return (
 		<>
 			<ambientLight intensity={0.5} />

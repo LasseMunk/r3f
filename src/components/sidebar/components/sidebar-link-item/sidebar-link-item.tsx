@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
+import { SidebarRoute } from "../../sidebar-types";
 
-export type SidebarLinkProps = {
-	route: string;
-	text: string;
-};
-
-export const SidebarLink = (props: SidebarLinkProps) => {
+export const SidebarRouteItem = (props: SidebarRoute) => {
 	const { route, text } = props;
 
 	return (
