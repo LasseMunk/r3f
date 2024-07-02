@@ -5,8 +5,10 @@ export default {
 		extend: {
 			colors: {
 				primary: "#FF6363",
-				secondary: "#4C1D95",
-				ternary: "#38A3A5",
+				secondary: "#ffecc5",
+				ternary: "#1e968a",
+				darkGrey: "#1F2937",
+				lightGrey: "#e5e7eb",
 			},
 		},
 		lineHeight: {

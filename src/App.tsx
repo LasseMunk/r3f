@@ -4,14 +4,13 @@ import { Error404, Home } from "./pages";
 import { ExampleOne } from "./r-three-fiber";
 
 const App = () => {
-	
 	return (
 		<BrowserRouter basename='/r3f'>
 			<div className='flex h-screen'>
 				<div>
 					<Sidebar />
 				</div>
-				<div className='bg-gray-300 flex-1'>
+				<div className='bg-gray-100 flex-1'>
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='*' element={<Error404 />} />

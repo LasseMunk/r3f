@@ -6,7 +6,7 @@ export const SidebarRouteItem = (props: SidebarRoute) => {
 
 	return (
 		<Link to={route}>
-			<li className='text-gray-200 text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 mx-2 hover:bg-gray-200 hover:text-gray-500'>
+			<li className='text-gray-200 text-sm p-2 mt-2 mx-2 rounded-md hover:bg-gray-200 hover:text-gray-500'>
 				<span>{text}</span>
 			</li>
 		</Link>
