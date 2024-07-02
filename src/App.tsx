@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Sidebar } from "./components";
 import { Error404, Home } from "./pages";
-import { ExampleOne } from "./r-three-fiber";
+import { DrawLinesBetweenVertices, ExampleOne } from "./r-three-fiber";
 
 const App = () => {
 	return (
@@ -15,6 +15,7 @@ const App = () => {
 						<Route path='/' element={<Home />} />
 						<Route path='*' element={<Error404 />} />
 						<Route path='/example-1' element={<ExampleOne />} />
+						<Route path='/draw-lines-between-vertices' element={<DrawLinesBetweenVertices />} />
 					</Routes>
 				</div>
 			</div>

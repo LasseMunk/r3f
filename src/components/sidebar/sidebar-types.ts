@@ -5,6 +5,7 @@ export enum SidebarCategories {
 	Random = "_random",
 	Audio = "_audio",
 	VertexDisplacement = "_vertex displacement",
+	VertexAnimation = "_vertex animation",
 	System = "_system",
 }
 

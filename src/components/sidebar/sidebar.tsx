@@ -8,6 +8,7 @@ export const Sidebar = () => {
 		{ category: SidebarCategories.Random, routes: [{ route: "/example-1", text: "example-1" }] },
 		{ category: SidebarCategories.Audio, routes: [] },
 		{ category: SidebarCategories.VertexDisplacement, routes: [] },
+		{ category: SidebarCategories.VertexAnimation, routes: [{ route: "/draw-lines-between-vertices", text: "draw lines - vertices" }] },
 	];
 
 	const [linkSearchText, setLinkSearchText] = useState("");
